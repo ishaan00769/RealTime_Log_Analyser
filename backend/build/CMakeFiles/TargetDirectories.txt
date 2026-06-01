@@ -1,3 +1,0 @@
-/home/ishaan-tripathi/intern prep/RealTime_Log_Analyser/backend/build/CMakeFiles/log_analyzer.dir
-/home/ishaan-tripathi/intern prep/RealTime_Log_Analyser/backend/build/CMakeFiles/edit_cache.dir
-/home/ishaan-tripathi/intern prep/RealTime_Log_Analyser/backend/build/CMakeFiles/rebuild_cache.dir
