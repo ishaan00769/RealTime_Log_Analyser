@@ -1,1 +1,23 @@
+# C++ Build Artifacts
+**/build/
+**/*.o
+**/*.out
+log_analyzer
 
+# Database
+**/*.db
+**/*.db-journal
+
+# Python
+**/venv/
+**/__pycache__/
+**/*.pyc
+
+# Node.js / React
+**/node_modules/
+**/dist/
+**/.env
+
+# OS & Editor
+**/.DS_Store
+**/.vscode/
