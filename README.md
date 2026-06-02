@@ -116,7 +116,6 @@ RealTime_Log_Analyser/
 │       └── httplib.h
 └── frontend/
     ├── Dockerfile
-    ├── README.md
     ├── eslint.config.js
     ├── index.html
     ├── package.json
