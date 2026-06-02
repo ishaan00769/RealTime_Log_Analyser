@@ -170,7 +170,8 @@ int main() {
         res.status = 200;
     });
 
-    svr.listen("127.0.0.1", 8080);
-
+    // svr.listen("127.0.0.1", 8080);
+    svr.listen("0.0.0.0", 8080);
+    
     return 0;
 }
