@@ -131,8 +131,3 @@ RealTime_Log_Analyser/
     └── vite.config.js
 ```
 
-## Recommended Workflow
-
-- Use `docker-compose up --build` for a full local environment
-- Keep the backend running on `8080` and access the dashboard at `5173`
-- If you need a fresh rebuild, stop Compose and rerun with `--build`
