@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  # 1. The C++ Analytic Backend
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    volumes:
+      # Keeps your SQLite database safe on the host machine
+      - ./backend:/app
+
+  # 2. The React Frontend Dashboard
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      # Prevents the container's node_modules from overriding local files
+      - /app/node_modules
+    depends_on:
+      - backend
