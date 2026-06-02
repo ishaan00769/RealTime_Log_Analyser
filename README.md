@@ -86,17 +86,51 @@ This will:
 
 ## Project Structure
 
-- `backend/`
-  - `CMakeLists.txt` — backend build definition
-  - `Dockerfile` — backend container build
-  - `include/` — analytics and service headers
-  - `src/` — C++ implementation files
-  - `scripts/generate_traffic.py` — synthetic log producer
-  - `third_party/httplib.h` — embedded HTTP server library
-- `frontend/`
-  - `Dockerfile` — frontend container build
-  - `package.json` — NPM dependencies and scripts
-  - `src/` — React application source
+```
+RealTime_Log_Analyser/
+├── docker-compose.yml
+├── README.md
+├── backend/
+│   ├── CMakeLists.txt
+│   ├── Dockerfile
+│   ├── include/
+│   │   ├── BloomFilter.h
+│   │   ├── CountMinSketch.h
+│   │   ├── DatabaseManager.h
+│   │   ├── HashUtils.h
+│   │   ├── HyperLogLog.h
+│   │   ├── LogReceiver.h
+│   │   └── SpaceSaving.h
+│   ├── scripts/
+│   │   └── generate_traffic.py
+│   ├── src/
+│   │   ├── BloomFilter.cpp
+│   │   ├── CountMinSketch.cpp
+│   │   ├── DatabaseManager.cpp
+│   │   ├── HashUtils.cpp
+│   │   ├── HyperLogLog.cpp
+│   │   ├── LogReceiver.cpp
+│   │   ├── main.cpp
+│   │   └── SpaceSaving.cpp
+│   └── third_party/
+│       └── httplib.h
+└── frontend/
+    ├── Dockerfile
+    ├── README.md
+    ├── eslint.config.js
+    ├── index.html
+    ├── package.json
+    ├── package-lock.json
+    ├── public/
+    │   └── icons.svg
+    ├── src/
+    │   ├── App.css
+    │   ├── App.jsx
+    │   ├── assets/
+    │   ├── index.css
+    │   └── main.jsx
+    └── vite.config.js
+```
 
 ## Recommended Workflow
 
