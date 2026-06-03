@@ -18,7 +18,7 @@ Below is a Mermaid diagram showing the current data flow and the planned inserti
 
 ```mermaid
 flowchart LR
-  A[Python Traffic Generator] -->|HTTP POST /logs| C[C++ Backend (Log Analyzer)]
+  A[Python Traffic Generator] -->|HTTP POST /logs| C[CPP Backend (Log Analyzer)]
   A -->|future: publish to| K[(Kafka (planned))]
   K -->|consume| C
   C -->|write| D[(SQLite Database)]
