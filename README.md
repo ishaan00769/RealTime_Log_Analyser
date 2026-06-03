@@ -51,6 +51,9 @@ flowchart LR
 - Uses Recharts for charting and visualizations
 - Fetches analytics data from the backend APIs and renders the dashboard in-browser
 
+<img width="1737" height="851" alt="Screenshot from 2026-06-03 16-07-40" src="https://github.com/user-attachments/assets/7d2daf48-9e3f-4373-ae42-28d0dd39f1c9" />
+
+
 ## Tech Stack
 
 - Backend
