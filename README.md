@@ -12,6 +12,24 @@ RealTime Log Analyser is a full-stack observability prototype combining a C++ an
 - **Frontend dashboard**: The React/Vite app runs on `5173` and fetches analytics data from the backend.
 - **Docker Compose**: `docker-compose.yml` orchestrates the backend and frontend containers together.
 
+## Architecture Diagram
+
+Below is a Mermaid diagram showing the current data flow and the planned insertion of Kafka between the traffic generator and the C++ backend (Kafka is marked as a future component).
+
+```mermaid
+flowchart LR
+  A[Python Traffic Generator] -->|HTTP POST /logs| C[C++ Backend (Log Analyzer)]
+  A -->|future: publish to| K[(Kafka (planned))]
+  K -->|consume| C
+  C -->|write| D[(SQLite Database)]
+  D -->|read| F[React / Vite Frontend]
+
+  classDef planned stroke-dasharray: 5 5,stroke:#ff7f0e;
+  class K planned;
+```
+
+**Note:** Kafka is shown as a planned/future component. Currently, `generate_traffic.py` posts directly to the backend's `/logs` endpoint; in the future producers can publish to Kafka and the backend will consume from it.
+
 ### Backend responsibilities
 
 - Receives streaming log payloads via `POST /logs`
