@@ -9,8 +9,8 @@ function App() {
   const [suspicious, setSuspicious] = useState([]);
   const [selectedDomain, setSelectedDomain] = useState('');
 
-  // Fetch data from your C++ Backend on load
   useEffect(() => {
+    // Define the fetch logic
     const fetchData = async () => {
       try {
         const [visRes, domRes, suspRes] = await Promise.all([
@@ -27,8 +27,8 @@ function App() {
         setDomains(domData);
         setSuspicious(suspData);
 
-        // Auto-select the first available domain for the dropdown
-        if (domData.length > 0) {
+        // Auto-select the first available domain only if one isn't selected yet
+        if (domData.length > 0 && !selectedDomain) {
           const uniqueDomains = [...new Set(domData.map(item => item.domain))];
           setSelectedDomain(uniqueDomains[0]);
         }
@@ -37,8 +37,16 @@ function App() {
       }
     };
 
+    // 1. Fetch immediately on load
     fetchData();
-  }, []);
+
+    // 2. Set up the Real-Time Polling Heartbeat (Every 1000ms)
+    const heartbeat = setInterval(fetchData, 1000);
+
+    // 3. Clean up the interval on unmount
+    return () => clearInterval(heartbeat);
+    
+  }, [selectedDomain]); // Added selectedDomain to dependency array so it doesn't overwrite user selection
 
   // Filter the domain data for the specific website chosen in the dropdown
   const uniqueDomainsList = [...new Set(domains.map(item => item.domain))];
