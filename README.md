@@ -18,11 +18,11 @@ Below is a Mermaid diagram showing the current data flow and the planned inserti
 
 ```mermaid
 flowchart LR
-  A[Python Traffic Generator] -->|HTTP POST /logs| C[CPP Backend (Log Analyzer)]
-  A -->|future: publish to| K[(Kafka (planned))]
+  A["Python Traffic Generator"] -->|HTTP POST /logs| C["CPP Backend (Log Analyzer)"]
+  A -->|future: publish to| K[("Kafka (planned)")]
   K -->|consume| C
-  C -->|write| D[(SQLite Database)]
-  D -->|read| F[React / Vite Frontend]
+  C -->|write| D[("SQLite Database")]
+  D -->|read| F["React / Vite Frontend"]
 
   classDef planned stroke-dasharray: 5 5,stroke:#ff7f0e;
   class K planned;
