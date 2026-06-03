@@ -4,6 +4,9 @@
 
 RealTime Log Analyser is a full-stack observability prototype combining a C++ analytics backend with a React/Vite frontend dashboard. The backend receives JSON log events, processes them using streaming algorithms, stores summary metrics in SQLite, and exposes HTTP analytics APIs. The frontend visualizes visitor trends, top domains, and suspicious IP activity.
 
+<img width="1737" height="851" alt="Screenshot from 2026-06-03 16-07-40" src="https://github.com/user-attachments/assets/7d2daf48-9e3f-4373-ae42-28d0dd39f1c9" />
+
+
 ## System Architecture
 
 - **Traffic ingestion**: The backend container runs a Python traffic generator (`backend/scripts/generate_traffic.py`) that streams synthetic log events into the C++ processing pipeline.
@@ -51,7 +54,6 @@ flowchart LR
 - Uses Recharts for charting and visualizations
 - Fetches analytics data from the backend APIs and renders the dashboard in-browser
 
-<img width="1737" height="851" alt="Screenshot from 2026-06-03 16-07-40" src="https://github.com/user-attachments/assets/7d2daf48-9e3f-4373-ae42-28d0dd39f1c9" />
 
 
 ## Tech Stack
